@@ -10,23 +10,23 @@ Lambdas Expression--------------------------------------------------------------
         Functional Interface is an interface with only one abstract method.
 
         Example of functional interface
-        _public interface Runnable{ 
-            run();
-         };
+            public interface Runnable{ 
+                run();
+             };
 
         Example of functional interface
-        _public interface Comparator<T>{ 
-            int compare(T t1, T t2);
-         };
+            public interface Comparator<T>{ 
+                int compare(T t1, T t2);
+             };
 
         Example of functional interface
-        _public interface FileFilter{ 
-            boolean accept(File pathname);
-         };
+            public interface FileFilter{ 
+                boolean accept(File pathname);
+             };
 
 
     Can a lambda be put in a variable?
-         Yes.
+        Yes.
         a lambda can be taken as a method parameter
         a lambda can be returned by a method
 
@@ -38,50 +38,50 @@ Lambdas Expression--------------------------------------------------------------
 Functional Interface Toolbox----------------------------------------------------
 
     There are 4 categories of Functional Interface
-    _supplier
-        @FunctionalInterface
-        public interface Supplier<T> {
-            T get();
-        }
+        _supplier
+            @FunctionalInterface
+            public interface Supplier<T> {
+                T get();
+            }
 
-    _consumer / bi-consumer
-        @FunctionalInterface
-        public interface Consumer<T> {
-            void accept(T t);
-        }
-        
-        @FunctionalInterface
-        public interface BiConsumer<T,U> {
-            void accept(T t, U u);
-        }
+        _consumer / bi-consumer
+            @FunctionalInterface
+            public interface Consumer<T> {
+                void accept(T t);
+            }
 
-    _predicate/ bi-predicate
-        @FunctionalInterface
-        public interface Predicate<T>{
-            boolean test(T t);
-        }
+            @FunctionalInterface
+            public interface BiConsumer<T,U> {
+                void accept(T t, U u);
+            }
 
-        @FunctionalInterface
-        public interface Predicate<T t, U u>{
-            boolean test(T t, U u);
-        }
+        _predicate/ bi-predicate
+            @FunctionalInterface
+            public interface Predicate<T>{
+                boolean test(T t);
+            }
 
-    _function / bi-function / unary-operator / binary-operator
-        @FunctionalInterface
-        public interface Function<T, R>{
-            R apply (T t);
-        }
-        
-        @FunctionalInterface
-        public interface BiFunction<T, U, R>{
-            R apply (T t , R u);
-        }
+            @FunctionalInterface
+            public interface Predicate<T t, U u>{
+                boolean test(T t, U u);
+            }
 
-        @FunctionalInterface
-        public interface UnaryOperator<T> extends Function<T,T>{}
-        
-        @FunctionalInterface
-        public interface BinaryOperator<T> extends BiFunctoin<T, T, T> {}
+        _function / bi-function / unary-operator / binary-operator
+            @FunctionalInterface
+            public interface Function<T, R>{
+                R apply (T t);
+            }
+
+            @FunctionalInterface
+            public interface BiFunction<T, U, R>{
+                R apply (T t , R u);
+            }
+
+            @FunctionalInterface
+            public interface UnaryOperator<T> extends Function<T,T>{}
+
+            @FunctionalInterface
+            public interface BinaryOperator<T> extends BiFunctoin<T, T, T> {}
     
     example of binary operator
         Comparator<String> c 
