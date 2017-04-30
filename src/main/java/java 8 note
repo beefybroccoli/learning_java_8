@@ -1,0 +1,71 @@
+
+Lambdas Expression--------------------------------------------------------------
+
+    What is the type of lambda expression?
+        The type of lambda is "Functional Interface".
+
+    What is a Functional Interface?
+        Functional Interface is an interface with only one abstract method.
+
+        Example of functional interface
+        _public interface Runnable{ 
+            run();
+         };
+
+        Example of functional interface
+        _public interface Comparator<T>{ 
+            int compare(T t1, T t2);
+         };
+
+        Example of functional interface
+        _public interface FileFilter{ 
+            boolean accept(File pathname);
+         };
+
+
+    Can a lambda be put in a variable?
+        Yes.
+
+        a lambda can be taken as a method parameter
+        a lambda can be returned by a method
+
+    Is lambda expression an object?
+        Lambda expression is not an object in java conventional sense.
+        Lambda expression is an object without an identity
+        Lambda expression is created without using "new" keyword.
+
+Functional Interface Toolbox----------------------------------------------------
+    
+There are 4 categories of Functional Interface
+_supplier
+_consumer / bi-consumer
+_predicate/ bi-predicate
+_function / bi-function / unary-operator / binary-operator
+
+Method References---------------------------------------------------------------
+
+This lambda expression : Consumer<String> c = s -> System.out.println(s);
+can be written like    : Consumer<String> c = System.out::println;
+
+This lambda expression : Comparator<Integer> c = (i1, i2) -> Integer.compare(i1, i2);
+can be written like    : Comparator<Integer> c = Integer::compare;
+
+
+Apply---------------------------------------------------------------------------
+
+How can we use <<lambda expression>> , <<Method References>> and <<functional interface>> to process data? 
+
+In an application, our object are mostly in a Collection (list, set or map). 
+
+You can process data with <<lambdas expression>>
+example - process data with lambdas
+    List<Customer> list = ....;
+    list.forEach( customer -> System.out.println(customer));
+
+You can process data with <<method references>>
+example - process data with method references
+    List<Customer> list = ...;
+    list.forEach( System.out::println );
+
+    
+    
