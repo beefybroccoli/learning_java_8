@@ -14,7 +14,7 @@ public class demo_stream_collectors {
         stream_filter_print();
         stream_chain_print();
         stream_intermediary_operation();    //return nothing
-        stream_final_operation();
+        stream_final_operation();   //return something
     }
 
     public static void stream_final_operation() {
