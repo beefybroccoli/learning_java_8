@@ -26,8 +26,7 @@ Lambdas Expression--------------------------------------------------------------
 
 
     Can a lambda be put in a variable?
-        Yes.
-
+         Yes.
         a lambda can be taken as a method parameter
         a lambda can be returned by a method
 
@@ -107,12 +106,12 @@ How to apply <<lambdas expression>> and <<method references>>-------------------
 
     You can process data with <<lambdas expression>>
     example - process data with lambdas
-        List<Customer> list = ....;
+        List<Customer> list = ... ;
         list.forEach( customer -> System.out.println(customer));
 
     You can process data with <<method references>>
     example - process data with method references
-        List<Customer> list = ...;
+        List<Customer> list = ... ;
         list.forEach( System.out::println );
 
 
@@ -149,15 +148,10 @@ What is a <<Stream>>?-----------------------------------------------------------
         }
 
     Stream gives ways to efficiently process large amounts of data in parallel and/or pipelined
-
     Stream is an object on which one can define operations
-
     Stream is an object that does not hold any data
-
     Stream is an object that should not change the data it process
-
     Stream is an object able to process data in <<one pass>> (map, filter and reduce)
-
     Stream is an object optimized from the algorithm point of view, and able to process data in parallel
 
 How to build and consume a <<Stream>>?------------------------------------------
