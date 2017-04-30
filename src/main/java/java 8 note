@@ -115,20 +115,23 @@ What is a <<Stream>>?-----------------------------------------------------------
     Stream is an object optimized from the algorithm point of view, and able to process data in parallel
 
 How to build and consume a <<Stream>>?------------------------------------------
-    
-    List<Person> persons = ... ;
-    Stream<Person> stream = persons.stream();
-    stream.forEach( p -> System.out.println(p) );
-    Consumer<T> consumer = p -> System.out.println(p);
 
-    List<String> list = new ArrayList<>();
-    Consumer<String> c1 = list::add;
-    Consumer<String> c2 = System.out::println;
-    Consuemr<string> c3 = c1.andThen(c2);
-    //since c2 does not return anything, passthem them as parameter to forEach() method
-    persons.stream().forEach(c1.andThen(c2));
+    Example 1    
+        List<Person> persons = ... ;
+        Stream<Person> stream = persons.stream();
+        stream.forEach( p -> System.out.println(p) );
+        Consumer<T> consumer = p -> System.out.println(p);
 
+    Example 2
+        List<String> list = new ArrayList<>();
+        Consumer<String> c1 = list::add;
+        Consumer<String> c2 = System.out::println;
+        Consuemr<string> c3 = c1.andThen(c2);
+        //since c2 does not return anything, passthem them as parameter to forEach() method
+        persons.stream().forEach(c1.andThen(c2));
 
+    Example 3
+        
 
 
 Patterns to build a Stream------------------------------------------------------
