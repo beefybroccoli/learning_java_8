@@ -166,12 +166,51 @@ How to build and consume a <<Stream>>?------------------------------------------
         List<String> list = new ArrayList<>();
         Consumer<String> c1 = list::add;
         Consumer<String> c2 = System.out::println;
-        Consuemr<string> c3 = c1.andThen(c2);
-        //since c2 does not return anything, passthem them as parameter to forEach() method
-        persons.stream().forEach(c1.andThen(c2));
 
     Example 3
+        List<String> list = new ArrayList<>();
+        Consumer<String> c1 = list::add;
+        Consumer<String> c2 = System.out::println;
+        Consuemr<string> c3 = c1.andThen(c2);
+        //since c2 does not return anything, passthem them as parameter to forEach() method
+        persons.stream().forEach(c1.andThen(c2));  
+
+    Example 4 - filter operation
+        List<Person> list = ... ;
+        Stream<Person> stream = list.stream();
+        //predicate check if the person is over 20, then return the person
+        Stream<person> filtered = stream.filter(person -> person.getAge() > 20);
+
+    Example 5
+        //takes a predicate as a parameter
+        Predicate<Person> p = person -> person.getAge() > 20;
         
+    predicate interface
+        @FunctionalInterface
+        public interface Predicate<T> {
+            boolean test(T t);
+            default Predicate<T> and (Predicate<? super T> other) { ... }
+            default Predicate<T> or (Predicate<? super T> other) { ... }
+            default Predicate<T> negate()  { ... }
+            static <T> Predicate<T> is equal(Object o) { ... }
+        }
+    
+    Example 6 - predicate
+        Predicate<Integer> p1 = i -> i > 20;
+        Predicate<Integer> p2 = i -> i < 30;
+        Predicate<Integer> p3 = i -> i == 0;
+
+    Example 7 - predicate
+        //( p1 AND p2 ) OR p3
+        Predicate<Integer> p4 = p1.and(p2).or(p3);
+        //( p3 OR p1) AND p2
+        Predicate<Integer> p5 = p3.or(p1).and(p2);
+
+    Example 8 - Predicate 
+        Predicate<Integer> p = Predicate.isEqual("two");
+        Stream<String> stream1 = Stream.of("one", "two", "three");
+        Stream<String> stream2 = Stream1.filter(p);
+
 
 
 Patterns to build a Stream------------------------------------------------------
