@@ -37,51 +37,51 @@ Lambdas Expression--------------------------------------------------------------
         Lambda expression is created without using "new" keyword.
 
 Functional Interface Toolbox----------------------------------------------------
-    
-There are 4 categories of Functional Interface
-_supplier
-_consumer / bi-consumer
-_predicate/ bi-predicate
-_function / bi-function / unary-operator / binary-operator
+
+    There are 4 categories of Functional Interface
+    _supplier
+    _consumer / bi-consumer
+    _predicate/ bi-predicate
+    _function / bi-function / unary-operator / binary-operator
 
 Method References---------------------------------------------------------------
 
-This lambda expression : Consumer<String> c = s -> System.out.println(s);
-can be written like    : Consumer<String> c = System.out::println;
+    This lambda expression : Consumer<String> c = s -> System.out.println(s);
+    can be written like    : Consumer<String> c = System.out::println;
 
-This lambda expression : Comparator<Integer> c = (i1, i2) -> Integer.compare(i1, i2);
-can be written like    : Comparator<Integer> c = Integer::compare;
+    This lambda expression : Comparator<Integer> c = (i1, i2) -> Integer.compare(i1, i2);
+    can be written like    : Comparator<Integer> c = Integer::compare;
 
 
 How to apply <<lambdas expression>> and <<method references>>-------------------
 
-How can we use <<lambda expression>> , <<Method References>> and <<functional interface>> to process data? 
+    How can we use <<lambda expression>> , <<Method References>> and <<functional interface>> to process data? 
 
-In an application, our object are mostly in a Collection (list, set or map). 
+    In an application, our object are mostly in a Collection (list, set or map). 
 
-You can process data with <<lambdas expression>>
-example - process data with lambdas
-    List<Customer> list = ....;
-    list.forEach( customer -> System.out.println(customer));
+    You can process data with <<lambdas expression>>
+    example - process data with lambdas
+        List<Customer> list = ....;
+        list.forEach( customer -> System.out.println(customer));
 
-You can process data with <<method references>>
-example - process data with method references
-    List<Customer> list = ...;
-    list.forEach( System.out::println );
+    You can process data with <<method references>>
+    example - process data with method references
+        List<Customer> list = ...;
+        list.forEach( System.out::println );
 
 
 Default Methods-----------------------------------------------------------------
 
-Default Methods is a new java 8 concept
-Default Methods allows to change the old interfaces without breaking the existing implementations
-Default Methods allows new patterns.
+    Default Methods is a new java 8 concept
+    Default Methods allows to change the old interfaces without breaking the existing implementations
+    Default Methods allows new patterns.
 
-example of new patterns
-    //Predicates
-    Predicate<String> p1 = s -> s.length() < 20;
-    Predicate<String> p2 = s -> s.length() > 10;
-    //combine two predicates
-    Predicate<String> p3 = p1.and(p2);
+    example of new patterns
+        //Predicates
+        Predicate<String> p1 = s -> s.length() < 20;
+        Predicate<String> p2 = s -> s.length() > 10;
+        //combine two predicates
+        Predicate<String> p3 = p1.and(p2);
 
 Introduction to Map-------------------------------------------------------------
 
@@ -95,14 +95,41 @@ Introduction to Reduce----------------------------------------------------------
 
 What is a <<Stream>>?-----------------------------------------------------------
 
-Stream is a java typed interface
+    Stream is a java typed interface
 
-example of a stream
-    public interface Stream<T> extends BaseStream<T, Stream<T>> {
-        //..
-    }
+    example of a stream
+        public interface Stream<T> extends BaseStream<T, Stream<T>> {
+            //..
+        }
 
-Stream gives ways to efficiently process large amounts of data in parallel and/or pipelined
+    Stream gives ways to efficiently process large amounts of data in parallel and/or pipelined
+
+    Stream is an object on which one can define operations
+
+    Stream is an object that does not hold any data
+
+    Stream is an object that should not change the data it process
+
+    Stream is an object able to process data in <<one pass>> (map, filter and reduce)
+
+    Stream is an object optimized from the algorithm point of view, and able to process data in parallel
+
+How to build and consume a <<Stream>>?------------------------------------------
+    
+List<Person> persons = ... ;
+Stream<Person> stream = persons.stream();
+stream.forEach( p -> System.out.println(p) );
+Consumer<T> consumer = p -> System.out.println(p);
+
+List<String> list = new ArrayList<>();
+Consumer<String> c1 = list::add;
+Consumer<String> c2 = System.out::println;
+Consuemr<string> c3 = c1.andThen(c2);
+//since c2 does not return anything, passthem them as parameter to forEach() method
+persons.stream().forEach(c1.andThen(c2));
+
+
+
 
 Patterns to build a Stream------------------------------------------------------
 
