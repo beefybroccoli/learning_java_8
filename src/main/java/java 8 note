@@ -67,5 +67,26 @@ example - process data with method references
     List<Customer> list = ...;
     list.forEach( System.out::println );
 
+
+Default Methods-----------------------------------------------------------------
+
+Default Methods is a new java 8 concept
+Default Methods allows to change the old interfaces without breaking the existing implementations
+Default Methods allows new patterns.
+
+example of new patterns
+    //Predicates
+    Predicate<String> p1 = s -> s.length() < 20;
+    Predicate<String> p2 = s -> s.length() > 10;
+    //combine two predicates
+    Predicate<String> p3 = p1.and(p2);
+    
+    
+
+
+
+
+
+
     
     
