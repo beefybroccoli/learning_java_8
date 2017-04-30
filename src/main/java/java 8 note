@@ -40,9 +40,55 @@ Functional Interface Toolbox----------------------------------------------------
 
     There are 4 categories of Functional Interface
     _supplier
+        @FunctionalInterface
+        public interface Supplier<T> {
+            T get();
+        }
+
     _consumer / bi-consumer
+        @FunctionalInterface
+        public interface Consumer<T> {
+            void accept(T t);
+        }
+        
+        @FunctionalInterface
+        public interface BiConsumer<T,U> {
+            void accept(T t, U u);
+        }
+
     _predicate/ bi-predicate
+        @FunctionalInterface
+        public interface Predicate<T>{
+            boolean test(T t);
+        }
+
+        @FunctionalInterface
+        public interface Predicate<T t, U u>{
+            boolean test(T t, U u);
+        }
+
     _function / bi-function / unary-operator / binary-operator
+        @FunctionalInterface
+        public interface Function<T, R>{
+            R apply (T t);
+        }
+        
+        @FunctionalInterface
+        public interface BiFunction<T, U, R>{
+            R apply (T t , R u);
+        }
+
+        @FunctionalInterface
+        public interface UnaryOperator<T> extends Function<T,T>{}
+        
+        @FunctionalInterface
+        public interface BinaryOperator<T> extends BiFunctoin<T, T, T> {}
+    
+    example of binary operator
+        Comparator<String> c 
+            = (s1, s2) 
+            -> Integer.compare(s1.length(), s2.length());
+
 
 Method References---------------------------------------------------------------
 
