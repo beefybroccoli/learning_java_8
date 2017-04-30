@@ -1,7 +1,7 @@
 What's New in Java 8 by Jose Paumard
 source : https://app.pluralsight.com/library/courses/java-8-whats-new/table-of-contents
 
-Lambdas Expression--------------------------------------------------------------
+Lambdas Expression----------------------------------------------------------------------------------
 
     What is the type of lambda expression?
         The type of lambda is "Functional Interface".
@@ -35,7 +35,7 @@ Lambdas Expression--------------------------------------------------------------
         Lambda expression is an object without an identity
         Lambda expression is created without using "new" keyword.
 
-Functional Interface Toolbox----------------------------------------------------
+Functional Interface Toolbox------------------------------------------------------------------------
 
     There are 4 categories of Functional Interface
         _supplier
@@ -89,7 +89,7 @@ Functional Interface Toolbox----------------------------------------------------
             -> Integer.compare(s1.length(), s2.length());
 
 
-Method References---------------------------------------------------------------
+Method References-----------------------------------------------------------------------------------
 
     This lambda expression : Consumer<String> c = s -> System.out.println(s);
     can be written like    : Consumer<String> c = System.out::println;
@@ -115,7 +115,7 @@ How to apply <<lambdas expression>> and <<method references>>-------------------
         list.forEach( System.out::println );
 
 
-Default Methods-----------------------------------------------------------------
+Default Methods-------------------------------------------------------------------------------------
 
     Default Methods is a new java 8 concept
     Default Methods allows to change the old interfaces without breaking the existing implementations
@@ -128,17 +128,17 @@ Default Methods-----------------------------------------------------------------
         //combine two predicates
         Predicate<String> p3 = p1.and(p2);
 
-Introduction to Map-------------------------------------------------------------
+Introduction to Map---------------------------------------------------------------------------------
 
 
-Introduction to Filter----------------------------------------------------------
+Introduction to Filter------------------------------------------------------------------------------
 
 
-Introduction to Reduce----------------------------------------------------------
+Introduction to Reduce------------------------------------------------------------------------------
 
 
 
-What is a <<Stream>>?-----------------------------------------------------------
+What is a <<Stream>>?-------------------------------------------------------------------------------
 
     Stream is a java typed interface
 
@@ -154,7 +154,7 @@ What is a <<Stream>>?-----------------------------------------------------------
     Stream is an object able to process data in <<one pass>> (map, filter and reduce)
     Stream is an object optimized from the algorithm point of view, and able to process data in parallel
 
-How to build and consume a <<Stream>> using stream------------------------------
+How to build and consume a <<Stream>> using stream--------------------------------------------------
 
     Example 1    
         List<Person> persons = ... ;
@@ -181,7 +181,7 @@ How to build and consume a <<Stream>> using stream------------------------------
         //predicate check if the person is over 20, then return the person
         Stream<person> filtered = stream.filter(person -> person.getAge() > 20);
 
-How to build and consume a <<Stream>> using stream, predicate-------------------
+How to build and consume a <<Stream>> using stream, predicate---------------------------------------
 
     Example 5
         //takes a predicate as a parameter
@@ -215,7 +215,7 @@ How to build and consume a <<Stream>> using stream, predicate-------------------
 
     intermediary operation : an operation on a stream that returns a Stream
 
-How to build and consume a <<Stream>> using stream, predicate, map--------------
+How to build and consume a <<Stream>> using stream, predicate, map----------------------------------
     
     Example 9
         List<Person> list = ... ;
@@ -239,10 +239,10 @@ How to build and consume a <<Stream>> using stream, predicate, map--------------
     
         
 
-Patterns to build a Stream------------------------------------------------------
+Patterns to build a Stream--------------------------------------------------------------------------
 
 
-Operations on a Stream----------------------------------------------------------
+Operations on a Stream------------------------------------------------------------------------------
 
 
 
