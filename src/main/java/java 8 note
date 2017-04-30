@@ -211,7 +211,28 @@ How to build and consume a <<Stream>>?------------------------------------------
         Stream<String> stream1 = Stream.of("one", "two", "three");
         Stream<String> stream2 = Stream1.filter(p);
 
-
+    an operation on a stream that returns a Stream is called an intermediary operation
+    
+    Example 9
+        List<Person> list = ... ;
+        Stream<Person> stream = list.stream();
+        Stream<Person> names = 
+                        stream.map( person -> person.getName());
+        
+    map() returns a Stream, so it is an intermediary operation
+    a mapper is modeled by the function interface with default methods to chain and compose mappings
+        @FunctionalInterface
+        public interface Function<T,R> {
+            R apply(T t);
+            default <V> Function<V,R> compose(Function<V,T> before);
+            default <V> Function<V,R> andThen(Function<V,T> after);
+            static <T> Function<T,T> identity(){
+                return t -> t;
+            }
+        }
+    
+    flatmapping operation
+        
 
 Patterns to build a Stream------------------------------------------------------
 
