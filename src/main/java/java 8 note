@@ -95,6 +95,14 @@ Introduction to Reduce----------------------------------------------------------
 
 What is a <<Stream>>?-----------------------------------------------------------
 
+Stream is a java typed interface
+
+example of a stream
+    public interface Stream<T> extends BaseStream<T, Stream<T>> {
+        //..
+    }
+
+Stream gives ways to efficiently process large amounts of data in parallel and/or pipelined
 
 Patterns to build a Stream------------------------------------------------------
 
