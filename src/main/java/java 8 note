@@ -232,7 +232,7 @@ How to build and consume a <<Stream>>?------------------------------------------
         }
     
     flatmapping operation
-    (text)
+    
         
 
 Patterns to build a Stream------------------------------------------------------
