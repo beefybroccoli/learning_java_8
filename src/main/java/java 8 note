@@ -53,7 +53,7 @@ This lambda expression : Comparator<Integer> c = (i1, i2) -> Integer.compare(i1,
 can be written like    : Comparator<Integer> c = Integer::compare;
 
 
-Apply---------------------------------------------------------------------------
+How to apply <<lambdas expression>> and <<method references>>-------------------
 
 How can we use <<lambda expression>> , <<Method References>> and <<functional interface>> to process data? 
 
@@ -82,8 +82,25 @@ example of new patterns
     Predicate<String> p2 = s -> s.length() > 10;
     //combine two predicates
     Predicate<String> p3 = p1.and(p2);
-    
-    
+
+Introduction to Map-------------------------------------------------------------
+
+
+Introduction to Filter----------------------------------------------------------
+
+
+Introduction to Reduce----------------------------------------------------------
+
+
+
+What is a <<Stream>>?-----------------------------------------------------------
+
+
+Patterns to build a Stream------------------------------------------------------
+
+
+Operations on a Stream----------------------------------------------------------
+
 
 
 
