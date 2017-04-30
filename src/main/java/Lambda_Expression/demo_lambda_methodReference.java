@@ -3,8 +3,9 @@ package Lambda_Expression;
 import static Utility.Utility.*;
 import java.io.*;
 import java.util.*;
+import java.util.function.Consumer;
 
-public class demo_lambda {
+public class demo_lambda_methodReference {
 
     public static void main(String[] args) {
 
@@ -14,6 +15,56 @@ public class demo_lambda {
         lambda_runnable();
         anonymous_comparator();
         lambda_comparator();
+        lambda_print();
+        method_reference_print();
+        lambda_add_print();
+    }
+
+    public static void method_reference_add_print() {
+        show("Start method_reference_add_print method");
+
+        List<String> strings = Arrays.asList("one", "two", "three", "four", "five");
+        List<String> result = new ArrayList<>();
+
+        Consumer<String> consumerPrint = System.out::println;
+        Consumer<String> consumerAdd = result::add;
+        strings.forEach(consumerAdd.andThen(consumerPrint));
+
+        show("Start method_reference_add_print method", "\n");
+    }
+
+    public static void lambda_add_print() {
+        show("Start lambda_add_print method");
+
+        List<String> strings = Arrays.asList("one", "two", "three", "four", "five");
+        List<String> result = new ArrayList<>();
+
+        Consumer<String> consumerPrint = input -> System.out.println(input);
+        Consumer<String> consumerAdd = input -> result.add(input);
+        strings.forEach(consumerAdd);
+        strings.forEach(consumerPrint);
+
+        show("Start lambda_add_print method", "\n");
+    }
+
+    public static void method_reference_print() {
+        show("Start method_reference_print method");
+
+        List<String> strings = Arrays.asList("one", "two", "three", "four", "five");
+        Consumer<String> consumer = System.out::println;
+        strings.forEach(consumer);
+
+        show("Start method_reference_print method", "\n");
+    }
+
+    public static void lambda_print() {
+        show("Start lambda_print method");
+
+        List<String> strings = Arrays.asList("one", "two", "three", "four", "five");
+        Consumer<String> consumer = input -> System.out.println(input);
+        strings.forEach(consumer);
+
+        show("Start lambda_print method", "\n");
     }
 
     public static void lambda_comparator() {
