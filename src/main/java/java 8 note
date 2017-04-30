@@ -154,7 +154,7 @@ What is a <<Stream>>?-----------------------------------------------------------
     Stream is an object able to process data in <<one pass>> (map, filter and reduce)
     Stream is an object optimized from the algorithm point of view, and able to process data in parallel
 
-How to build and consume a <<Stream>>?------------------------------------------
+How to build and consume a <<Stream>> using stream------------------------------
 
     Example 1    
         List<Person> persons = ... ;
@@ -180,6 +180,8 @@ How to build and consume a <<Stream>>?------------------------------------------
         Stream<Person> stream = list.stream();
         //predicate check if the person is over 20, then return the person
         Stream<person> filtered = stream.filter(person -> person.getAge() > 20);
+
+How to build and consume a <<Stream>> using stream, predicate-------------------
 
     Example 5
         //takes a predicate as a parameter
@@ -211,7 +213,9 @@ How to build and consume a <<Stream>>?------------------------------------------
         Stream<String> stream1 = Stream.of("one", "two", "three");
         Stream<String> stream2 = Stream1.filter(p);
 
-    an operation on a stream that returns a Stream is called an intermediary operation
+    intermediary operation : an operation on a stream that returns a Stream
+
+How to build and consume a <<Stream>> using stream, predicate, map--------------
     
     Example 9
         List<Person> list = ... ;
